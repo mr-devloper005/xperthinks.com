@@ -2,8 +2,6 @@
 
 import { FormEvent, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 
 const USERS_KEY = 'slot4:local-auth-users'
 const SESSION_KEY = 'slot4:local-auth-session'
@@ -25,19 +23,17 @@ const readUsers = (): LocalUser[] => {
   }
 }
 
-const saveUsers = (users: LocalUser[]) => {
-  window.localStorage.setItem(USERS_KEY, JSON.stringify(users))
-}
+const saveUsers = (users: LocalUser[]) => window.localStorage.setItem(USERS_KEY, JSON.stringify(users))
 
 const saveSession = (user: Pick<LocalUser, 'name' | 'email'>) => {
-  window.localStorage.setItem(
-    SESSION_KEY,
-    JSON.stringify({ name: user.name, email: user.email, loggedInAt: new Date().toISOString() })
-  )
+  window.localStorage.setItem(SESSION_KEY, JSON.stringify({ name: user.name, email: user.email, loggedInAt: new Date().toISOString() }))
   window.dispatchEvent(new Event('slot4-auth-change'))
 }
 
-export function LocalLoginForm() {
+const inputClass = 'h-12 rounded-sm border border-black/15 bg-white px-4 text-base font-bold text-black outline-none transition placeholder:text-black/35 focus:border-[#2698e8]'
+const buttonClass = 'inline-flex h-12 items-center justify-center rounded-sm bg-black px-6 text-sm font-black uppercase tracking-[0.16em] text-white transition hover:bg-[#2698e8] disabled:opacity-60'
+
+export function EditableLocalLoginForm() {
   const router = useRouter()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -48,13 +44,11 @@ export function LocalLoginForm() {
     event.preventDefault()
     const normalizedEmail = email.trim().toLowerCase()
     const user = readUsers().find((item) => item.email.toLowerCase() === normalizedEmail)
-
     if (!user || user.password !== password) {
       setStatus('error')
       setMessage('No account found with these details. Create an account first, then login.')
       return
     }
-
     saveSession(user)
     setStatus('success')
     setMessage(`Logged in locally as ${user.name}. Redirecting...`)
@@ -63,19 +57,15 @@ export function LocalLoginForm() {
 
   return (
     <form className="mt-6 grid gap-4" onSubmit={submit}>
-      <Input type="email" placeholder="Email address" value={email} onChange={(event) => setEmail(event.target.value)} required />
-      <Input type="password" placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)} required />
-      {message ? (
-        <p className={`rounded-2xl px-4 py-3 text-sm ${status === 'success' ? 'bg-emerald-50 text-emerald-700' : 'bg-red-50 text-red-700'}`}>
-          {message}
-        </p>
-      ) : null}
-      <Button type="submit" className="rounded-full bg-[#2f1d16] text-[#fff4e4] hover:bg-[#452920]">Continue</Button>
+      <input className={inputClass} type="email" placeholder="Email address" value={email} onChange={(event) => setEmail(event.target.value)} required />
+      <input className={inputClass} type="password" placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)} required />
+      {message ? <p className={`rounded-2xl px-4 py-3 text-sm font-bold ${status === 'success' ? 'bg-emerald-50 text-emerald-800' : 'bg-red-50 text-red-700'}`}>{message}</p> : null}
+      <button type="submit" className={buttonClass}>Continue</button>
     </form>
   )
 }
 
-export function LocalSignupForm() {
+export function EditableLocalSignupForm() {
   const router = useRouter()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -92,7 +82,6 @@ export function LocalSignupForm() {
       setMessage('Use at least 4 characters for local demo password.')
       return
     }
-
     const users = readUsers()
     const nextUser: LocalUser = {
       name: normalizedName || normalizedEmail.split('@')[0] || 'Local User',
@@ -100,8 +89,7 @@ export function LocalSignupForm() {
       password,
       createdAt: new Date().toISOString(),
     }
-    const withoutExisting = users.filter((item) => item.email.toLowerCase() !== normalizedEmail)
-    saveUsers([nextUser, ...withoutExisting])
+    saveUsers([nextUser, ...users.filter((item) => item.email.toLowerCase() !== normalizedEmail)])
     saveSession(nextUser)
     setStatus('success')
     setMessage('Local account created. Redirecting...')
@@ -110,20 +98,16 @@ export function LocalSignupForm() {
 
   return (
     <form className="mt-6 grid gap-4" onSubmit={submit}>
-      <Input placeholder="Full name" value={name} onChange={(event) => setName(event.target.value)} className="border-white/15 bg-white/10 text-white placeholder:text-white/50" required />
-      <Input type="email" placeholder="Email address" value={email} onChange={(event) => setEmail(event.target.value)} className="border-white/15 bg-white/10 text-white placeholder:text-white/50" required />
-      <Input type="password" placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)} className="border-white/15 bg-white/10 text-white placeholder:text-white/50" required />
-      {message ? (
-        <p className={`rounded-2xl px-4 py-3 text-sm ${status === 'success' ? 'bg-emerald-400/15 text-emerald-100' : 'bg-red-400/15 text-red-100'}`}>
-          {message}
-        </p>
-      ) : null}
-      <Button type="submit" className="rounded-full bg-[#d7b56d] text-[#241711] hover:bg-[#e2c884]">Start now</Button>
+      <input className={inputClass} placeholder="Full name" value={name} onChange={(event) => setName(event.target.value)} required />
+      <input className={inputClass} type="email" placeholder="Email address" value={email} onChange={(event) => setEmail(event.target.value)} required />
+      <input className={inputClass} type="password" placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)} required />
+      {message ? <p className={`rounded-2xl px-4 py-3 text-sm font-bold ${status === 'success' ? 'bg-emerald-50 text-emerald-800' : 'bg-red-50 text-red-700'}`}>{message}</p> : null}
+      <button type="submit" className={buttonClass}>Start now</button>
     </form>
   )
 }
 
-export function useLocalAuthSession() {
+export function useEditableLocalAuthSession() {
   const [session, setSession] = useState<{ name: string; email: string } | null>(null)
 
   useEffect(() => {

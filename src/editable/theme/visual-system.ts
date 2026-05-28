@@ -68,17 +68,17 @@ export const visualPresets = {
   },
   'tech-directory': {
     label: 'Tech Directory',
-    mood: 'clean, fast, useful',
-    fontDirection: 'modern sans with crisp mono data accents',
+    mood: 'clean tech magazine with fast scanning',
+    fontDirection: 'bold serif-style headlines balanced by crisp utility labels',
     colors: {
-      background: '#f6f9fc',
-      foreground: '#101827',
-      muted: '#5f6b7a',
-      primary: '#0f172a',
-      accent: '#00a6ff',
+      background: '#f4f4f4',
+      foreground: '#050505',
+      muted: '#686868',
+      primary: '#050505',
+      accent: '#2698e8',
       surface: '#ffffff',
     },
-    shape: 'clean grids, pill filters, sharp information hierarchy',
+    shape: 'thin rules, white modules, strong image blocks, compact sidebars',
   },
   'retro-bulletin': {
     label: 'Retro Bulletin',
@@ -114,17 +114,17 @@ export const visualSystem = {
   productKind: slot4BrandConfig.productKind,
   recommendedPreset:
     slot4BrandConfig.productKind === 'visual'
-      ? 'visual-gallery'
+      ? 'tech-directory'
       : slot4BrandConfig.productKind === 'editorial'
-        ? 'editorial-paper'
+        ? 'tech-directory'
         : slot4BrandConfig.productKind === 'directory'
           ? 'tech-directory'
-          : 'organic-journal',
+          : 'tech-directory',
   radius: {
-    sm: '0.75rem',
-    md: '1.25rem',
-    lg: '2rem',
-    xl: '2.75rem',
+    sm: '0.25rem',
+    md: '0.5rem',
+    lg: '0.5rem',
+    xl: '0.75rem',
   },
   motion: {
     pageLoad: 'animate-in fade-in slide-in-from-bottom-4 duration-700',
