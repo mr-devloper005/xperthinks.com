@@ -51,7 +51,7 @@ export function LocalLoginForm() {
 
     if (!user || user.password !== password) {
       setStatus('error')
-      setMessage('No local account found with these details. Create an account first, then login.')
+      setMessage('No account found with these details. Create an account first, then login.')
       return
     }
 

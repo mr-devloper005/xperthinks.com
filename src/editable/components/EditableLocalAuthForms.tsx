@@ -30,8 +30,8 @@ const saveSession = (user: Pick<LocalUser, 'name' | 'email'>) => {
   window.dispatchEvent(new Event('slot4-auth-change'))
 }
 
-const inputClass = 'h-12 rounded-2xl border border-[var(--editable-border)] bg-white/85 px-4 text-base font-bold text-current outline-none transition placeholder:text-current/35 focus:border-current focus:bg-white'
-const buttonClass = 'inline-flex h-12 items-center justify-center rounded-2xl bg-current px-6 text-sm font-black uppercase tracking-[0.22em] text-white transition hover:-translate-y-0.5 disabled:opacity-60'
+const inputClass = 'h-12 rounded-sm border border-black/15 bg-white px-4 text-base font-bold text-black outline-none transition placeholder:text-black/35 focus:border-[#2698e8]'
+const buttonClass = 'inline-flex h-12 items-center justify-center rounded-sm bg-black px-6 text-sm font-black uppercase tracking-[0.16em] text-white transition hover:bg-[#2698e8] disabled:opacity-60'
 
 export function EditableLocalLoginForm() {
   const router = useRouter()
@@ -46,7 +46,7 @@ export function EditableLocalLoginForm() {
     const user = readUsers().find((item) => item.email.toLowerCase() === normalizedEmail)
     if (!user || user.password !== password) {
       setStatus('error')
-      setMessage('No local account found with these details. Create an account first, then login.')
+      setMessage('No account found with these details. Create an account first, then login.')
       return
     }
     saveSession(user)
