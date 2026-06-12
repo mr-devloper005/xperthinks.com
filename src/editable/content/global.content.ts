@@ -8,11 +8,11 @@ export const globalContent = {
     baseUrl: slot4BrandConfig.baseUrl,
   },
   nav: {
-    tagline: 'Independent reading platform',
+    tagline: 'Digital stories, tools, and insight',
     primaryLinks: [
-      { label: 'Articles', href: '/articles' },
-      { label: 'Visuals', href: '/image-sharing' },
-      { label: 'Listings', href: '/listings' },
+      { label: 'Articles', href: '/article' },
+      { label: 'Images', href: '/image' },
+      { label: 'Listings', href: '/listing' },
       { label: 'Contact', href: '/contact' },
     ],
     actions: {
@@ -21,15 +21,15 @@ export const globalContent = {
     },
   },
   footer: {
-    tagline: 'Stories, resources, and discoverable posts',
-    description: 'A connected publishing surface for articles, visuals, listings, profiles, bookmarks, and downloadable resources.',
+    tagline: 'Tech reporting for readers who scan, save, and act',
+    description: 'Xperthinks is an independent reading platform for discovering technology insights, tools, and stories through a more practical and connected browsing experience.',
     columns: [
       {
         title: 'Explore',
         links: [
-          { label: 'Articles', href: '/articles' },
-          { label: 'Listings', href: '/listings' },
-          { label: 'Images', href: '/image-sharing' },
+          { label: 'Articles', href: '/article' },
+          { label: 'Listings', href: '/listing' },
+          { label: 'Images', href: '/image' },
           { label: 'PDF Library', href: '/pdf' },
         ],
       },
@@ -41,7 +41,7 @@ export const globalContent = {
         ],
       },
     ],
-    bottomNote: 'Built for clean discovery and connected publishing.',
+    bottomNote: 'Independent layout, practical discovery, and connected publishing.',
   },
   commonLabels: {
     readMore: 'Read more',
