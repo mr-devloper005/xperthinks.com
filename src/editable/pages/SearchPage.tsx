@@ -133,7 +133,7 @@ export default async function SearchPage({
 
   return (
     <EditableSiteShell>
-      <main className="bg-[var(--editable-page-bg,#f8f4ee)] px-4 py-12 text-[var(--editable-page-text,#1f1713)] sm:px-6 lg:px-8">
+      <main className="bg-[var(--slot4-page-bg)] px-4 py-12 text-[var(--slot4-page-text)] sm:px-6 lg:px-8">
         <section className="mx-auto max-w-7xl">
           <div className="rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm sm:p-8">
             <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">

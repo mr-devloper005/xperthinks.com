@@ -9,17 +9,17 @@ export function EditableFooter() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-white/10 bg-[#050505] text-white">
+    <footer className="border-t border-white/10 bg-[var(--slot4-dark-bg)] text-white">
       <div className="mx-auto grid max-w-[var(--editable-container,1500px)] gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.35fr_1fr_1fr] lg:px-8">
         <div>
           <Link href="/" className="inline-flex items-center gap-3">
             <span className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-sm border border-white/15 bg-white">
               <img src="/favicon.png?v=20260413" alt={brandName} className="h-24 w-24 max-w-none object-contain" />
             </span>
-            <span className="text-4xl font-black uppercase leading-none text-[#f6c739]">{brandName}</span>
+            <span className="text-4xl font-black uppercase leading-none text-[var(--slot4-accent-soft)]">{brandName}</span>
           </Link>
           <p className="mt-5 max-w-xl text-base leading-8 text-white/70">{globalContent.footer.description}</p>
-          <p className="mt-5 max-w-lg text-sm font-bold uppercase tracking-[0.18em] text-[#2698e8]">{globalContent.footer.tagline}</p>
+          <p className="mt-5 max-w-lg text-sm font-bold uppercase tracking-[0.18em] text-[var(--slot4-accent)]">{globalContent.footer.tagline}</p>
         </div>
 
         <div>

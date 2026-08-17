@@ -1,7 +1,7 @@
 import type { CSSProperties } from 'react'
 
 export const editableRootStyle = {
-  '--slot4-page-bg': '#f4f4f4',
+  '--slot4-page-bg': '#f0f5fa',
   '--slot4-page-text': '#050505',
   '--slot4-panel-bg': '#ffffff',
   '--slot4-surface-bg': '#ffffff',
@@ -12,12 +12,12 @@ export const editableRootStyle = {
   '--slot4-accent-soft': '#f6c739',
   '--slot4-dark-bg': '#050505',
   '--slot4-dark-text': '#ffffff',
-  '--slot4-media-bg': '#ededed',
-  '--slot4-cream': '#ffffff',
-  '--slot4-warm': '#f7f7f7',
-  '--slot4-lavender': '#eef6fd',
-  '--slot4-gray': '#f4f4f4',
-  '--slot4-body-gradient': 'linear-gradient(180deg, #ffffff 0%, #f6f6f6 48%, #ffffff 100%)',
+  '--slot4-media-bg': '#e4ecf4',
+  '--slot4-cream': '#f8fafc',
+  '--slot4-warm': '#f3f7fb',
+  '--slot4-lavender': '#e6f0fb',
+  '--slot4-gray': '#edf2f7',
+  '--slot4-body-gradient': 'linear-gradient(180deg, #f8fafc 0%, #edf2f7 48%, #f8fafc 100%)',
 } as CSSProperties
 
 export const editablePalette = {
