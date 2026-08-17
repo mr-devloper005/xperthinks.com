@@ -21,7 +21,7 @@ export default function CreatePage() {
 
   return (
     <EditableSiteShell>
-      <main className="bg-[var(--editable-page-bg,#f8f4ee)] px-4 py-12 text-[var(--editable-page-text,#1f1713)] sm:px-6 lg:px-8">
+      <main className="bg-[var(--slot4-page-bg)] px-4 py-12 text-[var(--slot4-page-text)] sm:px-6 lg:px-8">
         <section className="mx-auto max-w-7xl">
           <div className="grid overflow-hidden rounded-[2.5rem] border border-black/10 bg-white shadow-sm lg:grid-cols-[0.95fr_1.05fr]">
             <div className="p-8 sm:p-10 lg:p-12">

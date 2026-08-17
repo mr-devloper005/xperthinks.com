@@ -16,31 +16,31 @@ const lanes = [
 export default function ContactPage() {
   return (
     <EditableSiteShell>
-      <main className="bg-white text-black">
+      <main className="bg-[var(--slot4-page-bg)] text-[var(--slot4-page-text)]">
         <section className="mx-auto grid max-w-[var(--editable-container,1500px)] gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:px-8 lg:py-16">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.24em] text-[#2698e8]">{pagesContent.contact.eyebrow}</p>
+            <p className="text-xs font-black uppercase tracking-[0.24em] text-[var(--slot4-accent)]">{pagesContent.contact.eyebrow}</p>
             <h1 className="mt-5 max-w-4xl text-5xl font-black leading-[1.03] sm:text-6xl">{pagesContent.contact.title}</h1>
-            <p className="mt-6 max-w-3xl text-lg leading-9 text-black/65">{pagesContent.contact.description}</p>
+            <p className="mt-6 max-w-3xl text-lg leading-9 text-[var(--slot4-muted-text)]">{pagesContent.contact.description}</p>
 
             <div className="mt-9 grid gap-4 sm:grid-cols-2">
               {lanes.map((lane) => (
-                <div key={lane.title} className="border border-black/10 bg-[#f7f7f7] p-5">
-                  <lane.icon className="h-6 w-6 text-[#2698e8]" />
+                <div key={lane.title} className="border border-black/10 bg-[var(--slot4-warm)] p-5">
+                  <lane.icon className="h-6 w-6 text-[var(--slot4-accent)]" />
                   <h2 className="mt-4 text-xl font-black">{lane.title}</h2>
-                  <p className="mt-3 text-sm leading-7 text-black/62">{lane.body}</p>
+                  <p className="mt-3 text-sm leading-7 text-[var(--slot4-muted-text)]">{lane.body}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="border border-black/10 bg-[#f2f2f2] p-6 lg:p-8">
-            <div className="flex items-center justify-between gap-4 border-b-2 border-[#2698e8] pb-5">
-              <h2 className="text-lg font-black uppercase tracking-[0.04em] text-[#2698e8]">{pagesContent.contact.formTitle}</h2>
-              <MessageSquareText className="h-6 w-6 text-[#2698e8]" />
+          <div className="border border-black/10 bg-[var(--slot4-gray)] p-6 lg:p-8">
+            <div className="flex items-center justify-between gap-4 border-b-2 border-[var(--slot4-accent)] pb-5">
+              <h2 className="text-lg font-black uppercase tracking-[0.04em] text-[var(--slot4-accent)]">{pagesContent.contact.formTitle}</h2>
+              <MessageSquareText className="h-6 w-6 text-[var(--slot4-accent)]" />
             </div>
             <EditableContactLeadForm />
-            <div className="mt-8 grid gap-3 border-t border-black/10 pt-6 text-sm font-bold text-black/60">
+            <div className="mt-8 grid gap-3 border-t border-black/10 pt-6 text-sm font-bold text-[var(--slot4-muted-text)]">
               <p className="inline-flex items-center gap-2"><Mail className="h-4 w-4" /> Use the form for editorial and publishing requests.</p>
               <p className="inline-flex items-center gap-2"><MapPin className="h-4 w-4" /> Include URLs, categories, and context when possible.</p>
               <p className="inline-flex items-center gap-2"><Sparkles className="h-4 w-4" /> {globalContent.site.name} keeps the public UI independent from backend workflow changes.</p>
